@@ -1,0 +1,19 @@
+{
+  "name": "Handpress",
+  "short_name": "Handpress",
+  "description": "A design studio that runs in your browser. No watermark, no export limit, no account.",
+  "start_url": "/editor",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0a08",
+  "theme_color": "#0b0a08",
+  "categories": ["graphics", "productivity", "design"],
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "New design", "url": "/editor" }
+  ]
+}
