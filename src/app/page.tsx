@@ -5,58 +5,62 @@ import { Reveal } from "@/components/landing/Reveal";
 
 const CAPABILITIES = [
   {
-    title: "Type that carries weight",
-    body: "Ten effects built from stacked copies of the glyphs — shadow, lift, hollow, splice, echo, glitch, neon, outline, and a stepped extrude for real depth. Bend a line along an arc while you are at it.",
+    title: "Motion per layer, not per template",
+    body: "Eighteen entrances, six idle behaviours, and an exit on every element, each with its own duration, delay, and easing. Stagger a headline against its backdrop instead of picking one canned preset for the whole board.",
   },
   {
-    title: "Motion without a timeline degree",
-    body: "Eighteen entrances, six idle behaviours, and an exit for every layer. Scrub the bar at the bottom, or hit play and watch the whole board perform.",
+    title: "The export is the same thing you watched",
+    body: "Frames are written one at a time from the same function that drives the preview, so the file is a render rather than a screen capture. A loaded laptop produces a clean result instead of dropped frames.",
   },
   {
-    title: "Cutouts that stay on your machine",
-    body: "A segmentation model runs inside the tab through WebAssembly. Drop in a portrait, take the backdrop off, and nothing was uploaded to get there.",
+    title: "Type built the way printers build it",
+    body: "Ten effects — shadow, lift, hollow, splice, echo, glitch, neon, outline, and a stepped extrude — drawn as stacked copies of the glyphs. They hold together at six times the size because they are geometry, not a filter.",
   },
   {
-    title: "Print sizes that actually print",
-    body: "A4, A5, A3, DL, US Letter, business cards, roll-up banners — all set at 300 dpi. The PDF comes out at the page size you chose.",
+    title: "Cutouts that never leave the tab",
+    body: "A segmentation model runs locally through WebAssembly. Drop in a portrait, lift the backdrop off, and no upload happened along the way. There is a fast flat-colour knockout for studio shots too.",
   },
   {
-    title: "Vector out, not just pixels",
-    body: "Export SVG and the text is still text, the shapes are still paths. Open it in Illustrator or Inkscape later and keep working.",
+    title: "Print sizes that behave like print",
+    body: "A4, A5, A3, DL, US Letter, cards, roll-up banners, all set at 300 dpi. The PDF lands at the page size you picked, and resizing rescales the artwork rather than cropping into it.",
   },
   {
-    title: "Works with the network off",
-    body: "Projects sit in this browser's own storage. Type, templates, and effects are bundled. Close the laptop mid-sentence and the work is still there.",
+    title: "Your files stay put",
+    body: "Projects sit in this browser's own storage and save themselves every twelve seconds. No account to make, no folder on someone else's server, and the whole editor keeps working with the network off.",
   },
 ];
 
 const FORMATS = [
-  { label: "PNG", note: "Up to 6× with transparency" },
+  { label: "MP4", note: "Frame-accurate motion" },
+  { label: "WebM", note: "VP9 or VP8" },
+  { label: "PNG", note: "Up to 6× with alpha" },
   { label: "JPG", note: "Quality you choose" },
   { label: "WebP", note: "Smaller for the web" },
-  { label: "SVG", note: "Editable vector" },
+  { label: "SVG", note: "Text stays text" },
   { label: "PDF", note: "150 / 300 / 400 dpi" },
-  { label: "MP4", note: "Frame-accurate" },
-  { label: "WebM", note: "VP9 or VP8" },
   { label: "JSON", note: "The project itself" },
 ];
 
 const HONEST = [
   {
-    q: "Is this a Canva clone?",
-    a: "No. It borrows the shape of the workflow, because that layout is what people already know, but every line of it is written here. There is no scraped asset library, no cracked build, and nothing taken from anyone else's product.",
+    q: "Why motion, when there are plenty of layout tools?",
+    a: "Because a still post gets a glance and a moving one gets a stop. Most browser editors treat animation as a late addition — one preset applied to the whole page, exported behind a paywall. Here it is the part that got built first, and the timeline works on every individual layer.",
   },
   {
-    q: "Where do my files go?",
-    a: "Nowhere. There is no account system and no server holding your work. Projects live in this browser's IndexedDB, and exports land in your downloads folder.",
+    q: "Is this a copy of something else?",
+    a: "The workflow follows a familiar shape — tools on the left, board in the middle, properties on the right — because that arrangement is what people already know. The code underneath is written here against an open canvas engine. Nothing is scraped, forked, or cracked.",
   },
   {
-    q: "What is the catch on the free part?",
-    a: "There is no paid tier to upsell you to, so nothing has been held back to create one. The trade is that you supply your own pictures and there is no shared template marketplace behind it.",
+    q: "Where does my work end up?",
+    a: "In this browser and your downloads folder. There is no sign-in and no server holding files. That does mean clearing site data clears your projects, so keep the ones that matter as exported JSON.",
   },
   {
-    q: "Will there be an Android build?",
-    a: "That is the next thing on the list. The editor already resizes down to a phone screen in a mobile browser, and a packaged build follows once the touch gestures feel right.",
+    q: "What is the catch on the price?",
+    a: "You bring your own photographs, and there is no marketplace of finished templates behind it — six starters ship with the editor and that is the honest count. What you get instead is every effect, every resolution, and every format switched on from the first minute.",
+  },
+  {
+    q: "Is an Android build coming?",
+    a: "It is next. The editor already reflows onto a phone screen in a mobile browser; a packaged build follows once the touch gestures feel right rather than merely functional.",
   },
 ];
 
@@ -94,17 +98,17 @@ export default function Home() {
             </p>
 
             <h1 className="font-display text-[clamp(2.6rem,6.4vw,4.4rem)] font-extrabold leading-[0.95] tracking-[-0.045em] text-1">
-              Every design tool
+              A still poster
               <br />
-              rents you the press.
+              gets scrolled past.
               <br />
-              <span className="text-[var(--accent)]">This one hands it over.</span>
+              <span className="text-[var(--accent)]">Make yours move.</span>
             </h1>
 
             <p className="mt-6 max-w-[52ch] text-[1.02rem] leading-relaxed text-2">
-              Handpress is a layout studio for flyers, posters, and social graphics. Full text effects, per-layer
-              motion, background cutouts, print-ready PDF, and vector export. No watermark stamped on the corner,
-              no ceiling on resolution, no sign-up wall between you and your own work.
+              Handpress is a design studio for posters, flyers, and social graphics where the motion is the point.
+              Animate every layer on its own timeline, put real printed-type effects behind it, and take the result
+              out as MP4, vector, or a 300 dpi press file. All of it in a browser tab.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -124,8 +128,8 @@ export default function Home() {
 
             <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--hairline)] pt-6">
               {[
-                { n: "10", l: "Text effects" },
                 { n: "24", l: "Motion presets" },
+                { n: "10", l: "Text effects" },
                 { n: "8", l: "Export formats" },
               ].map((s) => (
                 <div key={s.l}>
@@ -145,6 +149,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ------------------------------------------------------ the method */}
+      <section className="border-b border-[var(--hairline)] surface-1">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:py-24 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+          <Reveal>
+            <p className="mb-4 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-3">How the motion works</p>
+            <h2 className="font-display text-[clamp(1.9rem,4vw,2.7rem)] font-bold leading-[1.05] tracking-[-0.04em] text-1">
+              One function decides where everything is at any moment
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <div className="space-y-4 text-[0.98rem] leading-relaxed text-2">
+              <p>
+                Give it an animation, a layer, and a point in time, and it returns a position, a scale, a rotation,
+                an opacity. Nothing is stored between frames, so asking for the same moment twice gives the same
+                answer twice.
+              </p>
+              <p>
+                The preview calls it while you scrub. The encoder calls it while it writes the file. That is the
+                whole trick, and it is why a recording matches what you were looking at rather than approximating
+                it. Tools that capture the screen inherit every stutter the machine had that afternoon.
+              </p>
+              <p>
+                The type effects follow the same principle. A neon glow is four passes of the same word, inked
+                differently and offset — the way a press would lay it down — instead of a blur applied afterwards.
+                Scale it six times and it stays sharp, because there was never a bitmap in the middle.
+              </p>
+              <p className="border-l-2 border-[var(--accent)] pl-4 text-1">
+                Pick any effect and any entrance in the panel above. What renders there is the production code, not
+                a recording of it.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ---------------------------------------------------- capabilities */}
       <section id="capabilities" className="border-b border-[var(--hairline)]">
         <div className="mx-auto max-w-6xl px-5 py-20 sm:py-24">
@@ -153,8 +192,8 @@ export default function Home() {
               Built the long way, so none of it is a demo
             </h2>
             <p className="mt-4 max-w-[58ch] text-[0.98rem] leading-relaxed text-2">
-              Each of these is wired to the canvas, not to a screenshot. Open the editor and the buttons do the
-              thing the sentence says they do.
+              Each of these is wired to the canvas rather than to a screenshot. Open the editor and the buttons do
+              the thing the sentence says they do.
             </p>
           </Reveal>
 
@@ -180,15 +219,16 @@ export default function Home() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-start lg:gap-16">
             <Reveal>
               <h2 className="font-display text-[clamp(1.9rem,4vw,2.9rem)] font-bold leading-[1.05] tracking-[-0.04em] text-1">
-                Eight ways out, none of them crippled
+                Eight ways out, none of them held back
               </h2>
               <p className="mt-4 max-w-[46ch] text-[0.98rem] leading-relaxed text-2">
-                The usual pattern is a free tier that exports at 800 pixels with a logo in the corner. Handpress has
-                no tier to protect, so the highest setting is simply the setting.
+                Video is usually the first thing a design tool puts behind a payment step, because encoding costs
+                the vendor money. Here it runs on your own machine, so there is nothing to meter and the highest
+                setting is simply the setting.
               </p>
               <p className="mt-4 max-w-[46ch] text-[0.98rem] leading-relaxed text-2">
-                Motion exports are written one frame at a time rather than screen-recorded, so a busy laptop still
-                produces a clean file instead of a stutter.
+                The same board goes out as a press-ready PDF or an SVG whose text is still editable text. One
+                layout, whichever medium the job turns out to need.
               </p>
             </Reveal>
 
@@ -238,10 +278,10 @@ export default function Home() {
           <Reveal>
             <HandpressMark size={52} className="mx-auto text-1" title="Handpress" />
             <h2 className="mt-7 font-display text-[clamp(2rem,5vw,3.2rem)] font-extrabold leading-[1] tracking-[-0.045em] text-1">
-              Open it and make something
+              Open it and make something move
             </h2>
             <p className="mx-auto mt-4 max-w-[46ch] text-[1rem] leading-relaxed text-2">
-              Nothing to install, nothing to sign, nothing held back. The first flyer takes about four minutes.
+              Nothing to install, nothing to sign. The first animated post takes about four minutes.
             </p>
             <Link
               href="/editor"

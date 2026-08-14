@@ -36,28 +36,29 @@ const SITE = "https://handpress.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
-    default: "Handpress — a design studio that runs in your browser",
+    default: "Handpress — animated posters and social graphics, made in the browser",
     template: "%s · Handpress",
   },
   description:
-    "Lay out flyers, posters, and social graphics with real text effects, motion, and background cutouts. Nothing is watermarked, nothing is gated, and the files never leave your machine.",
+    "Animate every layer on its own timeline, set real printed-type effects behind it, and export MP4, vector, or a 300 dpi press file. Runs in a browser tab, and the files never leave your machine.",
   keywords: [
-    "flyer maker", "poster editor", "browser design tool", "offline design editor",
-    "background remover", "text effects", "animated social posts", "free design software",
+    "animated social posts", "motion graphics editor", "poster editor", "flyer maker",
+    "browser design tool", "offline design editor", "background remover", "text effects",
   ],
   authors: [{ name: "Bryan Kwandou" }],
   openGraph: {
-    title: "Handpress — own the press",
+    title: "Handpress — make it move",
     description:
-      "A full design editor that runs in the browser. No watermark, no export limit, no account.",
+      "A motion-first design studio in the browser. Per-layer timelines, printed-type effects, and video export that renders rather than screen-captures.",
     url: SITE,
     siteName: "Handpress",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Handpress — own the press",
-    description: "A full design editor that runs in the browser. No watermark, no export limit, no account.",
+    title: "Handpress — make it move",
+    description:
+      "A motion-first design studio in the browser. Per-layer timelines, printed-type effects, and video export that renders rather than screen-captures.",
   },
   manifest: "/manifest.webmanifest",
   icons: {

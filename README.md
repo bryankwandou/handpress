@@ -4,11 +4,11 @@
 
 # Handpress
 
-**A design studio that runs in your browser. Own the press.**
+**Animated posters and social graphics, made in a browser tab.**
 
-Flyers, posters, and social graphics — laid out with real text effects, per-layer motion,
-background cutouts, and print-ready output. Nothing is watermarked, nothing is capped,
-and no file leaves the machine it was made on.
+Per-layer timelines, printed-type effects, in-tab background cutouts, and video export that
+renders frame by frame instead of capturing the screen. Nothing is capped, and no file leaves
+the machine it was made on.
 
 [Open the editor](https://handpress.vercel.app/editor) · [Landing page](https://handpress.vercel.app)
 
@@ -18,12 +18,13 @@ and no file leaves the machine it was made on.
 
 ## Why it exists
 
-Every browser design tool follows the same commercial shape: the editor is generous, the
-export is not. You lay out a poster, hit download, and meet a watermark, an 800-pixel
-ceiling, or a card form. The work is yours; the press belongs to someone else.
+A still post gets a glance; a moving one gets a stop. Yet in most browser design tools
+animation is an afterthought — one preset applied to the whole page, exported behind a
+payment step, because encoding video costs the vendor money on every click.
 
-Handpress inverts that. There is no paid tier, so nothing has been held back to create
-one. The highest export setting is simply the setting.
+Handpress puts motion first. Every layer carries its own entrance, idle, and exit, and the
+encoding happens on your machine, so there is nothing to meter. The highest export setting
+is simply the setting.
 
 This is not a modified or cracked build of anyone's product. Every feature here is
 written from scratch against an open canvas engine. The workflow borrows a familiar
