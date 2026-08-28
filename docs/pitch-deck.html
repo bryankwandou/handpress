@@ -1,0 +1,351 @@
+<title>Handpress — Pitch Deck</title>
+<style>
+  :root {
+    --paper:#faf7f0; --sheet:#ffffff; --ink:#14120e; --ink-soft:#4a453d;
+    --neutral:#8c857a; --rule:#14120e1f;
+    --plate-1:#f04e23; --plate-2:#1b3a6b;
+    --plate-1-wash:#f04e2314; --plate-2-wash:#1b3a6b12;
+    --good:#2f6b4f; --warn:#9a6212;
+    --display:"Arial Black","Archivo Black","Helvetica Neue",Helvetica,sans-serif;
+    --body:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+    --mono:ui-monospace,"Cascadia Mono","SF Mono",Consolas,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:#0b0a08; --sheet:#151310; --ink:#f2ede3; --ink-soft:#b3aa9a;
+      --neutral:#7d766a; --rule:#f2ede326;
+      --plate-1:#ff6a3d; --plate-2:#7ba7e8;
+      --plate-1-wash:#ff6a3d1a; --plate-2-wash:#7ba7e816;
+      --good:#66c294; --warn:#e0a850;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0b0a08; --sheet:#151310; --ink:#f2ede3; --ink-soft:#b3aa9a;
+    --neutral:#7d766a; --rule:#f2ede326;
+    --plate-1:#ff6a3d; --plate-2:#7ba7e8;
+    --plate-1-wash:#ff6a3d1a; --plate-2-wash:#7ba7e816;
+    --good:#66c294; --warn:#e0a850;
+  }
+  * { box-sizing:border-box; }
+  body {
+    background:var(--paper); color:var(--ink); font-family:var(--body);
+    font-size:17px; line-height:1.62; margin:0; padding:0 20px 80px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .deck { max-width:1000px; margin:0 auto; display:flex; flex-direction:column; gap:22px; }
+  .sheet {
+    position:relative; background:var(--sheet); border:1px solid var(--rule);
+    padding:56px 56px 52px; display:flex; flex-direction:column; gap:26px;
+  }
+  .sheet::before, .sheet::after { content:""; position:absolute; width:14px; height:14px; pointer-events:none; }
+  .sheet::before { top:12px; left:12px; border-top:1px solid var(--neutral); border-left:1px solid var(--neutral); }
+  .sheet::after { bottom:12px; right:12px; border-bottom:1px solid var(--neutral); border-right:1px solid var(--neutral); }
+  .plate-no {
+    font-family:var(--mono); font-size:10px; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--neutral); display:flex; justify-content:space-between; align-items:center;
+    gap:16px; border-bottom:1px solid var(--rule); padding-bottom:12px;
+  }
+  .plate-no .mark { color:var(--plate-1); }
+  h1,h2,h3 { font-family:var(--display); margin:0; text-wrap:balance; }
+  h1 { font-size:clamp(2.6rem,7vw,4.6rem); line-height:0.92; letter-spacing:-0.045em; text-transform:uppercase; }
+  h2 { font-size:clamp(1.7rem,3.6vw,2.5rem); line-height:1.02; letter-spacing:-0.035em; text-transform:uppercase; }
+  h3 { font-size:0.86rem; line-height:1.3; letter-spacing:0.01em; text-transform:none; }
+  p { margin:0; max-width:66ch; }
+  .lede { font-size:1.14rem; line-height:1.55; color:var(--ink-soft); max-width:62ch; }
+  .soft { color:var(--ink-soft); }
+  .small { font-size:0.9rem; }
+  .misreg { position:relative; display:inline-block; }
+  .misreg .over {
+    position:absolute; inset:0; color:var(--plate-1);
+    transform:translate(-0.09em,-0.055em); mix-blend-mode:multiply; pointer-events:none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .misreg .over { mix-blend-mode:screen; }
+  }
+  :root[data-theme="dark"] .misreg .over { mix-blend-mode:screen; }
+  .grid { display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); }
+  .grid.two { grid-template-columns:repeat(2,1fr); }
+  .grid.three { grid-template-columns:repeat(3,1fr); }
+  .cell { background:var(--sheet); padding:22px; display:flex; flex-direction:column; gap:8px; }
+  .cell p { font-size:0.92rem; line-height:1.55; color:var(--ink-soft); }
+  .eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--neutral); }
+  .stats { display:flex; flex-wrap:wrap; gap:40px; padding-top:6px; }
+  .stat .n { font-family:var(--display); font-size:2.3rem; line-height:1; letter-spacing:-0.04em; font-variant-numeric:tabular-nums; }
+  .stat .l { font-family:var(--mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--neutral); margin-top:7px; }
+  .scroll { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; min-width:560px; font-size:0.9rem; }
+  th, td { text-align:left; padding:12px 14px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { font-family:var(--mono); font-size:10px; letter-spacing:0.16em; text-transform:uppercase; color:var(--neutral); font-weight:normal; }
+  td.us { background:var(--plate-1-wash); }
+  tbody tr:last-child td { border-bottom:none; }
+  ul { margin:0; padding-left:1.15em; display:flex; flex-direction:column; gap:9px; }
+  li { color:var(--ink-soft); }
+  li strong { color:var(--ink); font-family:var(--body); }
+  .pill {
+    display:inline-block; font-family:var(--mono); font-size:10px; letter-spacing:0.14em;
+    text-transform:uppercase; padding:4px 9px; border:1px solid currentColor; align-self:flex-start;
+  }
+  .pill.live { color:var(--good); }
+  .pill.next { color:var(--warn); }
+  .pill.risk { color:var(--plate-1); }
+  .rule-2 { border-left:2px solid var(--plate-2); padding:14px 16px 14px 18px; background:var(--plate-2-wash); }
+  .rule-1 { border-left:2px solid var(--plate-1); padding-left:18px; }
+  a { color:var(--plate-2); text-underline-offset:3px; }
+  a:focus-visible { outline:2px solid var(--plate-1); outline-offset:3px; }
+  code { font-family:var(--mono); font-size:0.86em; background:var(--plate-2-wash); padding:1px 5px; }
+  @media (max-width:720px) {
+    .sheet { padding:38px 24px 34px; }
+    .grid.three, .grid.two { grid-template-columns:1fr; }
+    body { padding:0 12px 50px; }
+    .stats { gap:26px; }
+  }
+</style>
+
+<div class="deck">
+
+  <section class="sheet">
+    <div class="plate-no"><span>Handpress &middot; Pitch</span><span class="mark">Plate 01 / 12</span></div>
+    <h1>A still poster<br>gets scrolled past.<br>
+      <span class="misreg"><span class="over" aria-hidden="true">Make yours move.</span>Make yours move.</span>
+    </h1>
+    <p class="lede">A motion-first design studio that runs entirely in a browser tab. Every layer carries its own
+      timeline, the type effects are built the way a press builds them, and the video export renders frame by frame
+      instead of capturing the screen.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">24</div><div class="l">Motion presets</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">Text effects</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">Export formats</div></div>
+      <div class="stat"><div class="n">0</div><div class="l">Files uploaded</div></div>
+    </div>
+    <p class="small soft" style="padding-top:8px">Live at <a href="https://handpress.vercel.app">handpress.vercel.app</a>
+      &middot; Source at <a href="https://github.com/bryankwandou/handpress">github.com/bryankwandou/handpress</a></p>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>The problem</span><span class="mark">Plate 02 / 12</span></div>
+    <h2>Animation is the thing every design tool puts behind the till</h2>
+    <p class="lede">Not by accident. Encoding video on a server costs the vendor real money on every single click, so
+      the incentive is to meter it &mdash; and everything downstream of that incentive shapes the product.</p>
+    <div class="grid three">
+      <div class="cell"><span class="eyebrow">Consequence one</span><h3>Motion is per-template, not per-layer</h3>
+        <p>You pick one canned effect for the whole page. Staggering a headline against its backdrop &mdash; the thing
+          that makes motion read as designed rather than applied &mdash; is not on offer.</p></div>
+      <div class="cell"><span class="eyebrow">Consequence two</span><h3>The export is a screen capture</h3>
+        <p>Cheaper to implement, and it inherits every stutter the machine had that afternoon. The file you get is not
+          the thing you approved.</p></div>
+      <div class="cell"><span class="eyebrow">Consequence three</span><h3>Resolution is the pricing lever</h3>
+        <p>The editor is generous because it costs nothing. The download is where the business model lives, which is
+          why that is where the ceiling always sits.</p></div>
+    </div>
+    <div class="rule-2">
+      <p class="small"><strong>Who feels this.</strong> The small operator posting three times a week &mdash; a cafe, a
+        promoter, a tutor, a market stall. Motion is what stops the scroll, and it is precisely what they cannot reach
+        without a card on file.</p>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>The insight</span><span class="mark">Plate 03 / 12</span></div>
+    <h2>The browser got fast enough to move the render off the server</h2>
+    <p class="lede">WebAssembly, WebCodecs, and modern canvas mean the expensive parts &mdash; segmentation,
+      compositing, video encoding &mdash; now run acceptably on the machine already sitting in front of the user.</p>
+    <div class="grid two">
+      <div class="cell"><span class="eyebrow">What changes for the user</span><h3>The ceiling disappears</h3>
+        <p>Nothing is metered because nothing is being spent. The highest export setting stops being a tier and goes
+          back to being a setting.</p></div>
+      <div class="cell"><span class="eyebrow">What changes for the operator</span><h3>Marginal cost per export is zero</h3>
+        <p>Serving the application is a static file problem. A user who exports two hundred videos this month costs
+          the same as one who exports none.</p></div>
+    </div>
+    <div class="rule-1">
+      <p>Incumbents cannot follow without cannibalising the line item that funds them. That is not a technical moat
+        &mdash; it is a structural one, and structural moats last longer.</p>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>The product</span><span class="mark">Plate 04 / 12</span></div>
+    <h2>What is built and running today</h2>
+    <div class="grid three">
+      <div class="cell"><span class="pill live">Shipped</span><h3>Per-layer timelines</h3>
+        <p>Eighteen entrances, six idle behaviours, an exit on every element, each with its own duration, delay, and
+          one of eight easing curves. Scrubbable timeline under the board.</p></div>
+      <div class="cell"><span class="pill live">Shipped</span><h3>Printed-type effects</h3>
+        <p>Shadow, lift, hollow, splice, echo, glitch, neon, outline, stepped extrude &mdash; drawn as stacked copies
+          of the glyphs, so they hold at six times the size.</p></div>
+      <div class="cell"><span class="pill live">Shipped</span><h3>In-tab cutouts</h3>
+        <p>ISNet segmentation through WebAssembly. The portrait never leaves the tab, which makes the privacy claim a
+          fact about the architecture rather than a promise in a policy.</p></div>
+      <div class="cell"><span class="pill live">Shipped</span><h3>Eight export routes</h3>
+        <p>MP4 and WebM rendered frame-accurately, PNG / JPG / WebP to 6&times;, SVG with live text, PDF at
+          150&ndash;400 dpi, and the project itself as JSON.</p></div>
+      <div class="cell"><span class="pill live">Shipped</span><h3>Works offline</h3>
+        <p>Projects sit in IndexedDB and save themselves every twelve seconds. No account, no server holding files, no
+          sign-up wall in front of your own work.</p></div>
+      <div class="cell"><span class="pill next">Next</span><h3>Catalogue and Android</h3>
+        <p>Six starter templates today, which is the honest count. A proper catalogue and a packaged Android build are
+          the two nearest pieces of work.</p></div>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>How it works</span><span class="mark">Plate 05 / 12</span></div>
+    <h2>One pure function decides where everything is at any moment</h2>
+    <p class="lede">Give it an animation spec, a layer, and a point in time. It returns a position, a scale, a
+      rotation, an opacity. Nothing is stored between frames, so the same moment always resolves to the same answer.</p>
+    <div class="grid two">
+      <div class="cell"><span class="eyebrow">Consumer one</span><h3>The preview calls it while you scrub</h3>
+        <p>Sixty times a second, against the live canvas.</p></div>
+      <div class="cell"><span class="eyebrow">Consumer two</span><h3>The encoder calls it while it writes</h3>
+        <p>Once per frame, deliberately, waiting for each to settle before committing it.</p></div>
+    </div>
+    <div class="rule-1">
+      <p>Because both paths run <code>sample(spec, layer, t)</code>, the recording is a render of the design rather
+        than a capture of a screen that happened to be showing it. This is the least glamorous file in the repository
+        and the one thing here a competitor cannot copy in an afternoon.</p>
+    </div>
+    <p class="small soft">The type effects follow the same rule. A neon glow is four inked passes of the same word,
+      offset &mdash; geometry, not a filter applied afterwards. That is why it survives a 6&times; export instead of
+      turning to mush.</p>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Proof</span><span class="mark">Plate 06 / 12</span></div>
+    <h2>The demo on the landing page is the production code</h2>
+    <p class="lede">The specimen panel imports the same sampler and the same effect-pass builder the editor imports,
+      wired to plain DOM instead of canvas. Change the effect, change the entrance, and what replays is the shipping
+      implementation &mdash; not a video of it, not a mock.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">100%</div><div class="l">Written from scratch</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">Static routes, no backend</div></div>
+      <div class="stat"><div class="n">MIT</div><div class="l">Licence</div></div>
+    </div>
+    <p class="small soft">No forked build, no cracked binary, no scraped asset library. The workflow borrows a
+      familiar arrangement &mdash; tools left, board centre, properties right &mdash; because that is what people
+      already know how to operate. Everything under it was written here.</p>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Market</span><span class="mark">Plate 07 / 12</span></div>
+    <h2>Narrow on purpose, and growing on its own</h2>
+    <div class="grid three">
+      <div class="cell"><span class="eyebrow">Wedge</span><h3>Small operators who post weekly</h3>
+        <p>Cafes, promoters, tutors, market sellers, small congregations. They need motion, post often, and have no
+          budget line for design software.</p></div>
+      <div class="cell"><span class="eyebrow">Expansion</span><h3>Social and community managers</h3>
+        <p>People producing volume against a deadline, for whom the render-not-capture guarantee is a working concern
+          rather than a nicety.</p></div>
+      <div class="cell"><span class="eyebrow">Long term</span><h3>Anyone shipping motion at volume</h3>
+        <p>Once the catalogue exists and templates can be shared, the same engine serves agencies and in-house teams
+          without a change of architecture.</p></div>
+    </div>
+    <div class="rule-2">
+      <p class="small">Short-form video is now the default format on every major platform, and the tools serving it
+        price on export. The count that matters is not the size of the design market &mdash; it is the number of
+        people who want a moving post and stop at the payment step.</p>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Landscape</span><span class="mark">Plate 08 / 12</span></div>
+    <h2>Where this sits against what already exists</h2>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>Per-layer motion</th><th>Video export</th><th>Runs locally</th><th>Print output</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Canva</td><td>Limited, largely per-page</td><td>Metered on the paid tier</td><td>Server-side</td><td>Yes</td></tr>
+          <tr><td>Figma</td><td>Prototyping, not render</td><td>Not a deliverable</td><td>Server-side</td><td>No</td></tr>
+          <tr><td>Photopea</td><td>None</td><td>None</td><td>Yes</td><td>Partial</td></tr>
+          <tr><td>After Effects</td><td>Complete</td><td>Complete</td><td>Yes, desktop</td><td>No</td></tr>
+          <tr><td class="us"><strong>Handpress</strong></td><td class="us">Every layer, independently</td><td class="us">Frame-accurate, unmetered</td><td class="us">Entirely in-tab</td><td class="us">300 dpi PDF and SVG</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small soft">The honest reading of this table: nobody occupies the middle. Consumer tools make motion easy
+      and shallow; professional tools make it deep and unapproachable. The gap is depth without the learning curve, and
+      it is the only defensible place to stand.</p>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Business model</span><span class="mark">Plate 09 / 12</span></div>
+    <h2>Free where it costs nothing, paid where it costs something</h2>
+    <p class="lede">The current build charges for nothing, and that is a deliberate position rather than an oversight.
+      Revenue never comes from the export, because the export is the promise.</p>
+    <div class="grid three">
+      <div class="cell"><span class="eyebrow">Stays free, permanently</span><h3>The engine</h3>
+        <p>Editor, effects, motion, every format, every resolution. It runs on the user's hardware, so it costs
+          nothing to give away and the promise is credible.</p></div>
+      <div class="cell"><span class="eyebrow">Where money enters</span><h3>Content and continuity</h3>
+        <p>A curated template catalogue, brand kits, and sync across devices &mdash; things that genuinely carry a
+          cost, and that a professional will pay for without feeling held hostage.</p></div>
+      <div class="cell"><span class="eyebrow">Later</span><h3>Teams</h3>
+        <p>Shared libraries and approval flows. Sold per seat to organisations, which is where design tooling revenue
+          has always actually come from.</p></div>
+    </div>
+    <div class="rule-1">
+      <p class="small">The discipline: an individual never hits a wall mid-task. Every paid line is additive. The
+        moment a paywall lands between someone and their own artwork, the reason to choose this over the incumbent
+        evaporates.</p>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Status</span><span class="mark">Plate 10 / 12</span></div>
+    <h2>Working software, deployed, not a prototype</h2>
+    <div class="grid two">
+      <div class="cell"><span class="pill live">Live</span><h3>Deployed and reachable</h3>
+        <p>Landing page and editor both in production. Static build, no backend to keep alive, no credentials to
+          rotate.</p></div>
+      <div class="cell"><span class="pill live">Live</span><h3>Full feature path end to end</h3>
+        <p>Blank canvas to animated MP4, or to a 300 dpi press PDF, without a single step that opens a dialogue
+          asking for payment.</p></div>
+      <div class="cell"><span class="pill next">In progress</span><h3>Template catalogue</h3>
+        <p>Six starters today. This is the largest gap between the product and the market it is aimed at, and it is
+          being treated as such.</p></div>
+      <div class="cell"><span class="pill next">In progress</span><h3>Android build</h3>
+        <p>The editor already reflows onto a phone. Packaging waits until the touch gestures feel considered rather
+          than merely functional.</p></div>
+    </div>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>Risks</span><span class="mark">Plate 11 / 12</span></div>
+    <h2>What could sink this, stated plainly</h2>
+    <ul>
+      <li><span class="pill risk">Content gap</span><br><strong>Six templates is not a catalogue.</strong> The target
+        user wants a finished flyer, not an empty canvas. Mitigation: the catalogue is the next body of work, and the
+        project format is already portable JSON, so contributions do not require a schema change.</li>
+      <li><span class="pill risk">No lock-in</span><br><strong>Local files mean users can walk at any moment.</strong>
+        Accepted knowingly. Retention has to be earned by the tool being better, which is a harder discipline and a
+        healthier one.</li>
+      <li><span class="pill risk">Incumbent response</span><br><strong>A large vendor could ship per-layer motion.</strong>
+        They could &mdash; but unmetered local export cannibalises the tier that funds them, which is why the gap has
+        stayed open this long.</li>
+      <li><span class="pill risk">Blind metrics</span><br><strong>No accounts means no usage data.</strong> Real, and
+        the direct cost of the privacy position. Addressed later with opt-in, aggregate-only telemetry, never by
+        quietly adding an account requirement.</li>
+      <li><span class="pill risk">Browser variance</span><br><strong>Codec support differs across browsers.</strong>
+        Handled by shipping both MP4 and WebM and selecting per capability, but it remains a support surface.</li>
+    </ul>
+  </section>
+
+  <section class="sheet">
+    <div class="plate-no"><span>The ask</span><span class="mark">Plate 12 / 12</span></div>
+    <h2>Judge it against the running build, not the description</h2>
+    <p class="lede">Open the editor, put a headline on the board, give it an entrance, and export the MP4. If the file
+      matches what the timeline showed, the central technical claim of this deck is settled in about four minutes.</p>
+    <div class="grid three">
+      <div class="cell"><span class="eyebrow">Next 30 days</span><h3>Catalogue to forty templates</h3>
+        <p>Covering the formats the wedge audience actually posts: story, square, flyer, thumbnail.</p></div>
+      <div class="cell"><span class="eyebrow">Next 60 days</span><h3>Android package</h3>
+        <p>Touch gestures reworked first, then wrapped. Most of this audience designs on a phone.</p></div>
+      <div class="cell"><span class="eyebrow">Next 90 days</span><h3>Shared libraries</h3>
+        <p>The first paid surface, sold to teams, with the individual experience untouched.</p></div>
+    </div>
+    <p style="padding-top:6px"><a href="https://handpress.vercel.app">handpress.vercel.app</a> &middot;
+      <a href="https://github.com/bryankwandou/handpress">github.com/bryankwandou/handpress</a></p>
+  </section>
+
+</div>
