@@ -64,6 +64,25 @@ npm run dev      # http://localhost:3000
 npm run build    # production build
 ```
 
+## The launch film
+
+`video/` holds a Remotion project that renders the 43-second launch film in two cuts —
+`1920×1080` and `1080×1920` — from the same source. Scenes are composed once against a
+1920-wide board and scaled to the frame, so the vertical cut is the same layout rather than
+a second set of hand-tuned numbers.
+
+```bash
+cd video
+npm install
+npm run studio    # scrub it
+npm run render    # writes out/handpress-launch.mp4
+```
+
+## The deck
+
+`docs/pitch-deck.html` is a self-contained twelve-plate pitch, no assets and no build step.
+Open it in a browser.
+
 ## How it is put together
 
 ```
