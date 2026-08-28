@@ -21,8 +21,8 @@ const CAPABILITIES = [
     body: "A segmentation model runs locally through WebAssembly. Drop in a portrait, lift the backdrop off, and no upload happened along the way. There is a fast flat-colour knockout for studio shots too.",
   },
   {
-    title: "Print sizes that behave like print",
-    body: "A4, A5, A3, DL, US Letter, cards, roll-up banners, all set at 300 dpi. The PDF lands at the page size you picked, and resizing rescales the artwork rather than cropping into it.",
+    title: "Forty designs to start from",
+    body: "Gig bills, market boards, story promos, thumbnails, A4 flyers at 300 dpi, menus, business cards, opening hours. Each arrives already animated and already at the right canvas size, with every layer left unlocked.",
   },
   {
     title: "Your files stay put",
@@ -56,7 +56,7 @@ const HONEST = [
   },
   {
     q: "What is the catch on the price?",
-    a: "You bring your own photographs, and there is no marketplace of finished templates behind it — six starters ship with the editor and that is the honest count. What you get instead is every effect, every resolution, and every format switched on from the first minute.",
+    a: "You bring your own photographs, and there is no marketplace where people sell each other layouts. Forty designs ship with the editor, which is the honest count, and every one of them is fully editable rather than locked. What you get on top of that is every effect, every resolution, and every format switched on from the first minute.",
   },
   {
     q: "Is an Android build coming?",
@@ -126,8 +126,9 @@ export default function Home() {
               </Link>
             </div>
 
-            <dl className="mt-10 grid grid-cols-3 gap-6 border-t border-[var(--hairline)] pt-6">
+            <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-[var(--hairline)] pt-6 sm:grid-cols-4">
               {[
+                { n: "40", l: "Templates" },
                 { n: "24", l: "Motion presets" },
                 { n: "10", l: "Text effects" },
                 { n: "8", l: "Export formats" },

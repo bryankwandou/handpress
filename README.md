@@ -43,6 +43,7 @@ layout is what people already know how to use.
 | **Layout** | Multi-select, marquee, magnetic snapping to layer and artboard edges, align, distribute, reorder by drag, lock, hide, 16 blend modes. |
 | **Canvas** | 25 presets across social, print at 300 dpi, and screen — plus any custom size. Resizing rescales the artwork rather than cropping it. |
 | **Export** | PNG / JPG / WebP up to 6×, SVG with live text, PDF at 150–400 dpi, MP4 and WebM written frame-accurately, and the project itself as JSON. |
+| **Templates** | Forty starting designs across events, retail, social, stories, thumbnails, print, cards, editorial, and shop utilities — each one animated, at the right canvas size, and editable down to the last layer. |
 | **Offline** | Projects live in IndexedDB. Type, templates, and effects are bundled. Autosave every twelve seconds. |
 
 ## Stack
@@ -106,7 +107,8 @@ Being straight about the gaps:
 
 - Grouping layers, and a proper crop handle on images
 - Animated GIF export (MP4 and WebM are in)
-- A shared template library — the six built in are starters, not a catalogue
+- A *shared* template library — the forty built in cover the common jobs, but there is
+  nowhere yet to publish your own
 - A packaged Android build; the editor reflows to a phone browser, but the touch
   gestures need work before it is worth wrapping
 

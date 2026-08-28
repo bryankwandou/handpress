@@ -5,7 +5,7 @@ import {
   ArrowDownToLine, ArrowUpToLine, Copy, Eye, EyeOff, Image as ImageIcon,
   Lock, Trash2, Unlock, Upload,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { makeImage, makePath, makeShape, makeText } from "@/lib/factories";
 import { fillToCss } from "@/lib/konva-helpers";
 import { FONTS, GRADIENT_PRESETS, SHAPE_LIST, SIZE_PRESETS, STICKERS, SWATCHES } from "@/lib/presets";
@@ -22,6 +22,10 @@ export function TemplatesPanel({ onPicked }: { onPicked: () => void }) {
   const [filter, setFilter] = useState("All");
   const categories = ["All", ...new Set(TEMPLATES.map((t) => t.category))];
   const shown = filter === "All" ? TEMPLATES : TEMPLATES.filter((t) => t.category === filter);
+
+  // Building every document on each keystroke was cheap at six templates and
+  // is not at forty, so the previews are constructed once and reused.
+  const previews = useMemo(() => new Map(TEMPLATES.map((t) => [t.id, t.build()])), []);
 
   return (
     <div className="flex h-full flex-col">
@@ -41,7 +45,7 @@ export function TemplatesPanel({ onPicked }: { onPicked: () => void }) {
       </div>
       <div className="scrollbar-thin grid flex-1 grid-cols-2 gap-3 overflow-y-auto p-4">
         {shown.map((t) => {
-          const preview = t.build();
+          const preview = previews.get(t.id)!;
           return (
             <button
               key={t.id}
